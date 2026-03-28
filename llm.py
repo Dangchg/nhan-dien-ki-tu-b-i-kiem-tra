@@ -6,7 +6,7 @@ import requests # Thêm thư viện này để gọi API Local
 # ==========================================
 # HÀM GỌI LOCAL LLM SỬA LỖI CHÍNH TẢ
 # ==========================================
-def fix_typos_with_llm(tex_filepath, model_name="qwen2.5:7b"):
+def fix_typos_with_llm(tex_filepath,tex_llm_filename, model_name="qwen2.5:7b"):
     print(f"\n[LLM] Đang đọc file {tex_filepath} để sửa lỗi chính tả...")
     
     # 1. Đọc nội dung file LaTeX vừa tạo
@@ -49,7 +49,7 @@ NỘI DUNG GỐC:
         corrected_content = corrected_content.replace("```latex", "").replace("```", "").strip()
 
         # 3. Ghi đè file LaTeX với nội dung sạch sẽ
-        with open(tex_filepath, 'w', encoding='utf-8') as f:
+        with open(tex_llm_filename, 'w', encoding='utf-8') as f:
             f.write(corrected_content)
             
         print("[LLM] Đã quét và sửa xong lỗi chính tả thành công!")
