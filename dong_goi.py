@@ -101,7 +101,7 @@ def export_to_latex_and_zip(all_pages_data, output_dir="output_images", zip_file
     try:
         # Tùy thuộc vào việc hàm LLM của anh trả về chuỗi text hay tự lưu file
         # Nếu hàm LLM trả về chuỗi text đã sửa:
-        fixed_text = fix_typos_with_llm(tex_filename)
+        fixed_text = fix_typos_with_llm(tex_filename,tex_llm_filename)
         if fixed_text:
             with open(tex_llm_filename, "w", encoding="utf-8") as f:
                 f.write(fixed_text)
